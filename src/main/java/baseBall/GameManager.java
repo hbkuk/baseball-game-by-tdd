@@ -4,25 +4,27 @@ import java.util.Scanner;
 
 public class GameManager {
 
-    void play() {
-        Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
 
+    public GameManager(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void play() {
         boolean gameContinue = true;
         while (gameContinue) {
-            playSingleGame(scanner);
-            gameContinue = askUserForRestart(scanner);
+            playSingleGame(createComputerBall());
+            gameContinue = askUserForRestart();
         }
         scanner.close();
     }
 
-    private void playSingleGame(Scanner scanner) {
-        Balls computerBall = createComputerBall();
-
+    public void playSingleGame(Balls balls) {
         boolean gameFinished = true;
         while (gameFinished) {
-            String inputNumbers = getInput(scanner);
+            String inputNumbers = getInput();
             BallStatusResult ballStatusResult =
-                    computerBall.match(new Balls(InputView.splitStringToIntegerList(inputNumbers)));
+                    balls.match(new Balls(InputView.splitStringToIntegerList(inputNumbers)));
 
             System.out.println(ResultView.result(ballStatusResult));
 
@@ -32,7 +34,7 @@ public class GameManager {
         }
     }
 
-    private boolean askUserForRestart(Scanner scanner) {
+    public boolean askUserForRestart() {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 
         String inputConditionNumber = scanner.next();
@@ -46,7 +48,7 @@ public class GameManager {
         return true;
     }
 
-    private String getInput(Scanner scanner) {
+    public String getInput() {
         String inputNumbers;
         do {
             System.out.println("숫자를 입력해 주세요 : ");
