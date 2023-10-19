@@ -23,10 +23,14 @@ public class Ball {
         if(this.equals(ball)) {
             return BallStatus.STRIKE;
         }
-        if(this.number == ball.number) {
+        if(isSameBallNumber(ball)) {
             return BallStatus.BALL;
         }
         return BallStatus.NOTHING;
+    }
+
+    private boolean isSameBallNumber(Ball ball) {
+        return this.number == ball.number;
     }
 
     private void validateBall(int position, int number) {

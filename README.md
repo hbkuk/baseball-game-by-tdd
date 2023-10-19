@@ -9,8 +9,8 @@
     - [O] Ball과 Ball 비교
         - [O] (1, 1) -> (1, 1) => Strike
         - [O] (1, 1) -> (1, 3) => Nothing
-    - [ ] Balls에서 Ball 목록
+    - [O] Balls에서 Ball 목록
         - [O] (1, 1), (2, 2), (3, 3) - (2, 1) => Ball
         - [O] (1, 1), (2, 2), (3, 3) - (1, 1), (2, 6), (3, 9)
-    - [ ] Result에서 Balls 와 Balls를 비교한 상태 값
-        - [ ] 결과 값을 전달받아 Counting => 1 Strike, 1 Ball
+    - [O] Result에서 Balls 와 Balls를 비교한 상태 값
+        - [O] 결과 값을 전달받아 Counting => 1 Strike, 1 Ball
