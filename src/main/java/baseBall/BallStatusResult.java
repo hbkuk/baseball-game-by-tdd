@@ -29,4 +29,16 @@ public class BallStatusResult {
     public int getStrikeCount() {
         return this.strikeCount;
     }
+
+    public boolean isThreeStrike() {
+        return this.strikeCount == 3;
+    }
+
+    public boolean isZeroStrike() {
+        return strikeCount == 0;
+    }
+
+    public boolean isZeroBall() {
+        return ballCount == 0;
+    }
 }

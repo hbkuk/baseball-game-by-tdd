@@ -3,7 +3,7 @@ package baseBall;
 import java.util.*;
 
 public class UniqueRandomBallNumberGenerator {
-    private static final int MAX_BALL_COUNT = 3;
+    public static final int MAX_BALL_COUNT = 3;
 
     private Random random = new Random();
 
