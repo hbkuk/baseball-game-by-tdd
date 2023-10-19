@@ -13,6 +13,9 @@ public class ResultView {
         if(!ballStatusResult.isZeroBall()) {
             stringBuilder.append("Ball ").append(ballStatusResult.getBallCount()).append("\n");
         }
+        if(ballStatusResult.isNothing()) {
+            stringBuilder.append("Nothing").append("\n");
+        }
         return stringBuilder.toString();
     }
 }

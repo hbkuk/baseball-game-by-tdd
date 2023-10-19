@@ -13,7 +13,7 @@ class InputViewTest {
     @CsvSource(value = {"123:true", "012:false", "-134:false", "333:true", "1052:false"}, delimiter = ':')
     @ParameterizedTest
     void create(String inputNumbers, boolean expected) {
-        assertEquals(expected, InputView.isValidInput(inputNumbers));
+        assertEquals(expected, InputView.isValidInputNumber(inputNumbers));
     }
 
     @Test
