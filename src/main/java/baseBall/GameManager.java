@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class GameManager {
 
+    private static final String RESTART_PROMPT = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+    private static final String INVALID_INPUT_RESTART_PROMPT = "다시 제대로 숫자를 입력해 주세요 : ";
+    private static final String INPUT_PROMPT = "숫자를 입력해 주세요 : ";
     private final Scanner scanner;
 
     public GameManager(Scanner scanner) {
@@ -35,23 +38,20 @@ public class GameManager {
     }
 
     public boolean askUserForRestart() {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        System.out.println(RESTART_PROMPT);
 
         String inputConditionNumber = scanner.next();
         while (!InputView.isValidInputConditionNumber(inputConditionNumber)) {
-            System.out.println("다시 제대로 숫자를 입력해 주세요 : ");
+            System.out.println(INVALID_INPUT_RESTART_PROMPT);
             inputConditionNumber = scanner.next();
         }
-        if (InputView.isExitNumber(inputConditionNumber)) {
-            return false;
-        }
-        return true;
+        return !InputView.isExitNumber(inputConditionNumber);
     }
 
     public String getInput() {
         String inputNumbers;
         do {
-            System.out.println("숫자를 입력해 주세요 : ");
+            System.out.println(INPUT_PROMPT);
             inputNumbers = scanner.next();
         } while (!InputView.isValidInputNumber(inputNumbers));
         return inputNumbers;
