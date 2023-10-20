@@ -62,8 +62,8 @@ class GameManagerTest {
         assertEquals(expectedOutput, out.toString());
     }
 
-    private void setInputStreamInSystem(String abs, String number) {
-        String input = abs + System.lineSeparator() + number + System.lineSeparator();
+    private void setInputStreamInSystem(String inputA, String inputB) {
+        String input = inputA + System.lineSeparator() + inputB + System.lineSeparator();
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
     }
